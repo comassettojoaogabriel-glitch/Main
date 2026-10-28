@@ -1,0 +1,16 @@
+{
+  "name": "manutencao-matrizes",
+  "version": "1.0.0",
+  "description": "SCREW · Matrizaria — manutenção preventiva das matrizes (Admin + App do Técnico)",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check lib/db.js && node --check lib/auth.js && node --check lib/calculos.js && node --check lib/email.js && node --check lib/semente.js && node --check lib/datas.js"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "express": "4.22.3",
+    "nodemailer": "6.10.1"
+  }
+}

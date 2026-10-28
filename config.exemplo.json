@@ -1,0 +1,12 @@
+{
+  "porta": 3001,
+  "nomeRemetente": "SCREW · Matrizaria",
+  "urlBase": "http://NOME-OU-IP-DO-SERVIDOR:3001",
+  "diasSessao": 7,
+  "minutosTablet": 10,
+  "dadosDeExemplo": true,
+  "gmail": {
+    "usuario": "",
+    "senhaDeApp": ""
+  }
+}

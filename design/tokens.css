@@ -1,0 +1,234 @@
+/* =====================================================================
+   SCREW · Tokens de design — fonte única de verdade
+   Tema claro em :root · tema escuro em [data-theme="dark"] (no <html>)
+   REGRA: as telas usam SOMENTE os aliases semânticos (seção 2+).
+   A paleta base (seção 1) só deve ser referenciada dentro deste arquivo.
+   ===================================================================== */
+
+@font-face{font-family:"Geist";src:url("assets/fontes/Geist-Variable.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url("assets/fontes/GeistMono-Variable.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+
+:root{
+color-scheme:light;
+
+/* ---------- 1. Paleta base ---------- */
+/* Azul-marinho SCREW (amostrado do logotipo #1B3D5C) */
+--navy-950:#0B1B2C;--navy-900:#0F2439;--navy-800:#15304B;--navy-700:#1B3D5C;--navy-600:#244E73;--navy-500:#2E5F8A;
+/* Azul de ação (mesmo matiz do marinho, mais claro) */
+--blue-700:#1A4F8F;--blue-600:#1F5CA6;--blue-500:#2668BA;--blue-400:#4F86CC;--blue-300:#8FB2E0;--blue-200:#C4D7F0;--blue-100:#E3ECF8;--blue-50:#F1F6FC;
+/* Aço (cinza do símbolo "S") — só em arte de marca */
+--steel-700:#46474F;--steel-600:#585760;--steel-500:#7A7E87;--steel-400:#A8A9AF;--steel-300:#C9CACF;
+/* Neutros frios */
+--gray-0:#FFFFFF;--gray-25:#F9FAFB;--gray-50:#F2F4F7;--gray-100:#E9ECF1;--gray-200:#DDE1E8;--gray-300:#C5CAD3;--gray-400:#9CA3AF;--gray-500:#747C8A;--gray-600:#575F6D;--gray-700:#3C4350;--gray-750:#2A3240;--gray-800:#262C37;--gray-850:#1E2531;--gray-875:#181F2A;--gray-900:#141A24;--gray-925:#0F151E;--gray-950:#0B111A;
+/* Semânticas */
+--green-600:#1F7A4E;--green-500:#30A46C;--green-400:#4CC38A;--green-100:#E3F5EC;
+--amber-600:#A96A05;--amber-500:#F5A524;--amber-400:#F5B94A;--amber-100:#FEF3DE;
+--red-600:#C4302F;--red-500:#E5484D;--red-400:#F2777B;--red-100:#FDEBEC;
+--cyan-600:#0E7490;--cyan-500:#0891B2;--cyan-400:#3FB5D3;--cyan-100:#E0F4F8;
+
+/* ---------- 2. Marca e ação ---------- */
+--brand:var(--navy-700);
+--brand-strong:var(--navy-900);
+--accent:var(--blue-600);
+--accent-hover:var(--blue-700);
+--accent-soft:var(--blue-100);
+--accent-soft-hover:var(--blue-200);
+--accent-soft-fg:var(--blue-700);
+--accent-muted:var(--blue-300);
+--accent-ring:rgba(38,104,186,.22);
+--on-accent:var(--gray-0);
+--on-accent-muted:rgba(255,255,255,.72);
+--on-accent-subtle:rgba(255,255,255,.6);
+--on-accent-fill:rgba(255,255,255,.18);
+--on-accent-track:rgba(255,255,255,.2);
+
+/* ---------- 3. Superfícies ---------- */
+--bg-app:var(--gray-50);
+--bg-app-fade:rgba(242,244,247,0);
+--surface-card:var(--gray-0);
+--surface-sunken:var(--gray-50);
+--surface-muted:var(--gray-100);
+--surface-muted-hover:var(--gray-200);
+--surface-hover:var(--gray-50);
+--surface-hover-subtle:var(--gray-25);
+--surface-selected:var(--blue-50);
+--surface-inverse:var(--gray-900);
+--surface-inverse-hover:var(--gray-700);
+--surface-overlay:rgba(20,26,36,.40);
+--surface-glass:rgba(255,255,255,.92);
+--surface-disabled:var(--gray-100);
+
+/* ---------- 4. Texto ---------- */
+--text-strong:var(--gray-900);
+--text-body:var(--gray-800);
+--text-secondary:var(--gray-700);
+--text-muted:var(--gray-500);
+--text-subtle:var(--gray-400);
+--text-disabled:var(--gray-400);
+--text-inverse:var(--gray-0);
+--text-inverse-muted:rgba(255,255,255,.7);
+--fill-on-inverse:rgba(255,255,255,.16);
+--text-link:var(--blue-600);
+
+/* ---------- 5. Bordas e controles ---------- */
+--border-subtle:var(--gray-100);
+--border-default:var(--gray-200);
+--border-strong:var(--gray-300);
+--border-focus:var(--blue-500);
+--control-track:var(--gray-300);
+--control-knob:var(--gray-0);
+
+/* ---------- 6. Semânticas (base · texto · fundo suave) ---------- */
+--success:var(--green-500);--success-fg:var(--green-600);--success-soft:var(--green-100);
+--warning:var(--amber-500);--warning-fg:var(--amber-600);--warning-soft:var(--amber-100);
+--danger:var(--red-500);--danger-fg:var(--red-600);--danger-soft:var(--red-100);--danger-hover:var(--red-600);
+--info:var(--cyan-500);--info-fg:var(--cyan-600);--info-soft:var(--cyan-100);
+--neutral:var(--gray-400);--neutral-fg:var(--gray-600);--neutral-soft:var(--gray-100);
+
+/* ---------- 7. Status de manutenção ---------- */
+--status-ok:var(--success);
+--status-due:var(--warning);
+--status-overdue:var(--danger);
+--status-progress:var(--accent);
+--status-inactive:var(--neutral);
+
+/* ---------- 8. Gráficos ---------- */
+--chart-track:var(--gray-25);
+--chart-bar:var(--gray-200);
+--chart-bar-hover:var(--gray-300);
+--chart-line:var(--gray-800);
+--chart-current:var(--accent);
+--chart-secondary:var(--blue-300);
+
+/* ---------- 9. Gradientes (só estes dois) ---------- */
+--gradient-brand:linear-gradient(90deg,var(--steel-500) 0%,var(--navy-700) 100%);
+--gradient-highlight:linear-gradient(135deg,var(--blue-500) 0%,var(--navy-700) 100%);
+
+/* ---------- 10. Tipografia ---------- */
+--font-sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+--font-mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
+--fw-regular:400;--fw-medium:500;--fw-semibold:600;--fw-bold:700;
+--fs-10:10px;--fs-11:11px;--fs-12:12px;--fs-13:13px;--fs-14:14px;--fs-15:15px;--fs-16:16px;--fs-17:17px;--fs-18:18px;--fs-20:20px;--fs-24:24px;--fs-26:26px;--fs-28:28px;--fs-32:32px;--fs-40:40px;
+--lh-tight:1.15;--lh-snug:1.3;--lh-normal:1.45;--lh-relaxed:1.6;
+--tracking-tight:-0.02em;--tracking-snug:-0.01em;--tracking-normal:0;--tracking-caps:0.06em;
+--type-page-title:600 var(--fs-28)/var(--lh-tight) var(--font-sans);
+--type-page-title-mobile:600 var(--fs-24)/var(--lh-tight) var(--font-sans);
+--type-app-title:600 var(--fs-26)/var(--lh-tight) var(--font-sans);
+--type-section-title:600 var(--fs-18)/var(--lh-snug) var(--font-sans);
+--type-modal-title:600 var(--fs-20)/1.25 var(--font-sans);
+--type-drawer-title:600 var(--fs-17)/var(--lh-snug) var(--font-sans);
+--type-card-title:600 var(--fs-15)/var(--lh-snug) var(--font-sans);
+--type-body:400 var(--fs-14)/var(--lh-normal) var(--font-sans);
+--type-body-strong:500 var(--fs-14)/var(--lh-normal) var(--font-sans);
+--type-small:400 var(--fs-13)/var(--lh-normal) var(--font-sans);
+--type-caption:400 var(--fs-12)/var(--lh-normal) var(--font-sans);
+--type-label:500 var(--fs-12)/var(--lh-snug) var(--font-sans);
+--type-button:500 var(--fs-14)/1 var(--font-sans);
+--type-overline:500 var(--fs-10)/1 var(--font-mono);
+--type-kpi:600 var(--fs-28)/1.1 var(--font-sans);
+--type-kpi-sm:600 var(--fs-20)/1.1 var(--font-sans);
+--type-code:400 var(--fs-12)/var(--lh-snug) var(--font-mono);
+
+/* ---------- 11. Espaçamento (base 4px + meios-passos) ---------- */
+--space-0:0;--space-1:2px;--space-2:4px;--space-3:6px;--space-4:8px;--space-5:10px;--space-6:12px;--space-7:14px;--space-8:16px;--space-9:18px;--space-10:20px;--space-12:24px;--space-14:28px;--space-16:32px;--space-20:40px;--space-24:48px;--space-32:64px;
+
+/* ---------- 12. Raios ---------- */
+--radius-xs:6px;--radius-sm:8px;--radius-md:10px;--radius-lg:14px;--radius-xl:20px;--radius-2xl:24px;--radius-pill:999px;
+--radius-control:var(--radius-md);
+--radius-card:var(--radius-xl);
+--radius-modal:var(--radius-2xl);
+
+/* ---------- 13. Alturas de controle ---------- */
+--h-control-sm:32px;--h-control-md:40px;--h-control-lg:48px;--h-nav-item:36px;--h-row:56px;
+
+/* ---------- 14. Layout ---------- */
+--layout-sidebar:272px;--layout-sidebar-collapsed:76px;--layout-gutter:24px;--layout-safe:32px;--layout-col:70px;--layout-topbar:64px;--layout-max:1440px;
+--layout-gutter-mobile:16px;--layout-tabbar:72px;--layout-app-max:480px;
+--bp-sm:640px;--bp-md:900px;--bp-lg:1200px;
+
+/* ---------- 15. Elevação e foco ---------- */
+--shadow-none:none;
+--shadow-xs:0 1px 2px rgba(20,26,36,.05);
+--shadow-sm:0 1px 3px rgba(20,26,36,.06),0 1px 2px rgba(20,26,36,.04);
+--shadow-md:0 8px 24px -8px rgba(20,26,36,.12),0 2px 6px rgba(20,26,36,.04);
+--shadow-lg:0 24px 48px -16px rgba(20,26,36,.22),0 4px 12px rgba(20,26,36,.06);
+--shadow-accent:0 6px 18px -6px rgba(31,92,166,.45);
+--ring-focus:0 0 0 3px var(--accent-ring);
+--ring-danger:0 0 0 3px rgba(229,72,77,.18);
+
+/* ---------- 16. Movimento, desfoque, camadas ---------- */
+--ease-standard:cubic-bezier(.2,0,0,1);
+--ease-emphasized:cubic-bezier(.3,0,0,1);
+--ease-exit:cubic-bezier(.4,0,1,1);
+--dur-fast:120ms;--dur-base:180ms;--dur-slow:280ms;
+--blur-overlay:6px;--blur-glass:12px;
+--z-sticky:10;--z-drawer:40;--z-modal:50;--z-toast:60;
+}
+
+/* =====================================================================
+   Tema escuro — só os aliases mudam; nomes iguais, valores trocados.
+   Ativar: <html data-theme="dark">
+   ===================================================================== */
+[data-theme="dark"]{
+color-scheme:dark;
+--brand:var(--navy-700);
+--brand-strong:var(--navy-900);
+--accent:var(--blue-500);
+--accent-hover:var(--blue-600);
+--accent-soft:rgba(79,134,204,.18);
+--accent-soft-hover:rgba(79,134,204,.28);
+--accent-soft-fg:var(--blue-300);
+--accent-muted:var(--navy-500);
+--accent-ring:rgba(79,134,204,.35);
+
+--bg-app:var(--gray-950);
+--bg-app-fade:rgba(11,17,26,0);
+--surface-card:var(--gray-900);
+--surface-sunken:var(--gray-925);
+--surface-muted:var(--gray-850);
+--surface-muted-hover:var(--gray-750);
+--surface-hover:var(--gray-850);
+--surface-hover-subtle:var(--gray-875);
+--surface-selected:rgba(79,134,204,.12);
+--surface-inverse:var(--gray-50);
+--surface-inverse-hover:var(--gray-200);
+--surface-overlay:rgba(0,0,0,.60);
+--surface-glass:rgba(20,26,36,.92);
+--surface-disabled:var(--gray-850);
+
+--text-strong:var(--gray-50);
+--text-body:var(--gray-200);
+--text-secondary:var(--gray-300);
+--text-muted:var(--gray-400);
+--text-subtle:var(--gray-500);
+--text-disabled:var(--gray-500);
+--text-inverse:var(--gray-900);
+--text-inverse-muted:rgba(20,26,36,.6);
+--fill-on-inverse:rgba(20,26,36,.12);
+--text-link:var(--blue-300);
+
+--border-subtle:var(--gray-850);
+--border-default:var(--gray-750);
+--border-strong:var(--gray-700);
+--border-focus:var(--blue-400);
+--control-track:var(--gray-700);
+
+--success-fg:var(--green-400);--success-soft:rgba(48,164,108,.16);
+--warning-fg:var(--amber-400);--warning-soft:rgba(245,165,36,.16);
+--danger-fg:var(--red-400);--danger-soft:rgba(229,72,77,.16);
+--info-fg:var(--cyan-400);--info-soft:rgba(8,145,178,.18);
+--neutral:var(--gray-500);--neutral-fg:var(--gray-400);--neutral-soft:var(--gray-850);
+
+--chart-track:var(--gray-875);
+--chart-bar:var(--gray-750);
+--chart-bar-hover:var(--gray-700);
+--chart-line:var(--gray-200);
+--chart-secondary:var(--navy-500);
+
+--shadow-xs:0 1px 2px rgba(0,0,0,.30);
+--shadow-sm:0 1px 3px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.25);
+--shadow-md:0 8px 24px -8px rgba(0,0,0,.50),0 2px 6px rgba(0,0,0,.30);
+--shadow-lg:0 24px 48px -16px rgba(0,0,0,.65),0 4px 12px rgba(0,0,0,.35);
+--shadow-accent:0 6px 18px -6px rgba(38,104,186,.55);
+--ring-danger:0 0 0 3px rgba(229,72,77,.30);
+}

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCREW · Referência de componentes</title>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('screw-tema')||'light'}catch(e){}</script>
+<!-- Tokens (fonte única) + classes de componentes (que só usam tokens) -->
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="../public/css/app.css">
+<style>
+/* Estilos só desta página de documentação — usam apenas tokens */
+body{padding:var(--space-16) var(--space-8)}
+.doc{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:var(--space-20)}
+.doc-top{display:flex;align-items:center;justify-content:space-between;gap:var(--space-8);flex-wrap:wrap}
+.doc-top img{height:34px}
+.doc-sec{display:flex;flex-direction:column;gap:var(--space-8)}
+.doc-h{font:var(--type-page-title);letter-spacing:var(--tracking-tight);color:var(--text-strong)}
+.doc-h2{font:var(--type-section-title);color:var(--text-strong)}
+.doc-p{font:var(--type-small);color:var(--text-muted);max-width:760px}
+.doc-p code,.doc-code{font:var(--type-code);color:var(--accent-soft-fg);background:var(--accent-soft);padding:1px var(--space-2);border-radius:var(--radius-xs)}
+.doc-box{background:var(--surface-card);border-radius:var(--radius-card);padding:var(--space-12);display:flex;flex-direction:column;gap:var(--space-10)}
+.doc-row{display:flex;flex-wrap:wrap;gap:var(--space-6);align-items:center}
+.doc-row--top{align-items:flex-start}
+.doc-k{width:120px;flex:none;font:var(--type-overline);letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--text-subtle)}
+.doc-grid{display:grid;gap:var(--space-8)}
+.doc-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.doc-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.doc-g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.doc-sw{display:flex;flex-direction:column;gap:var(--space-3);min-width:0}
+.doc-chip{height:48px;border-radius:var(--radius-md);box-shadow:inset 0 0 0 1px var(--border-subtle)}
+.doc-n{font:var(--type-label);color:var(--text-strong)}
+.doc-v{font:var(--type-code);color:var(--text-muted)}
+.doc-swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:var(--space-6)}
+.doc-icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:var(--space-4)}
+.doc-icon{display:flex;flex-direction:column;align-items:center;gap:var(--space-3);padding:var(--space-6) var(--space-2);border-radius:var(--radius-md);background:var(--surface-sunken);color:var(--text-body);font:var(--type-code);font-size:var(--fs-10);text-align:center;word-break:break-all}
+.doc-type{display:grid;grid-template-columns:190px 1fr 150px;gap:var(--space-6);align-items:baseline}
+.doc-logo{height:120px;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center}
+.doc-logo--light{background:var(--gray-0);box-shadow:inset 0 0 0 1px var(--gray-100)}
+.doc-logo--navy{background:var(--navy-700)}
+.doc-logo--ink{background:var(--gray-900)}
+.doc-logo img{height:52px}
+.doc-space{display:flex;align-items:flex-end;gap:var(--space-6);flex-wrap:wrap}
+.doc-space span{display:block;background:var(--accent-soft-hover);border-radius:3px}
+.doc-radius{width:76px;height:60px;background:var(--surface-sunken);border:1px solid var(--border-default)}
+.doc-shadow{height:64px;border-radius:var(--radius-lg);background:var(--surface-card)}
+.doc-drawer{height:440px}
+/* Estados forçados só para visualização */
+.f-hover.btn{background:var(--surface-hover-subtle)}
+.f-hover.btn--primary{background:var(--accent-hover)}
+.f-hover.btn--dark{background:var(--surface-inverse-hover)}
+.f-hover.btn--ghost{background:var(--surface-muted)}
+.f-hover.nav-item{background:var(--surface-hover)}
+.f-focus{box-shadow:var(--ring-focus)}
+.control.f-focus{border-color:var(--border-focus);box-shadow:var(--ring-focus)}
+tr.f-hover{background:var(--surface-hover-subtle)}
+@media (max-width:899px){.doc-g3,.doc-g4{grid-template-columns:minmax(0,1fr)}.doc-type{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="doc">
+
+<header class="doc-top">
+<div class="row gap-8"><img class="logo-light" src="assets/logo/screw-logo-transparent.png" alt="SCREW"><img class="logo-dark" src="assets/logo/screw-logo-white.png" alt="SCREW"><div><h1 class="doc-h">Referência de componentes</h1><p class="doc-p">Cada componente e seus estados, desenhado só com <code>design/tokens.css</code>. As classes vêm de <code>public/css/app.css</code> e as funções que geram o HTML estão em <code>public/js/ui.js</code>.</p></div></div>
+<button type="button" class="btn" id="tema"><i data-ico="moon"></i>Alternar tema claro / escuro</button>
+</header>
+
+<!-- ============ MARCA ============ -->
+<section class="doc-sec"><h2 class="doc-h2">Marca</h2>
+<div class="doc-box"><div class="doc-grid doc-g4">
+<div class="doc-sw"><div class="doc-logo doc-logo--light"><img src="assets/logo/screw-logo-transparent.png" alt="SCREW"></div><span class="doc-n">Logo colorido</span><span class="doc-v">fundo branco / cinza claro</span></div>
+<div class="doc-sw"><div class="doc-logo doc-logo--navy"><img src="assets/logo/screw-logo-white.png" alt="SCREW"></div><span class="doc-n">Logo branco</span><span class="doc-v">fundo marinho / tema escuro</span></div>
+<div class="doc-sw"><div class="doc-logo doc-logo--ink"><img src="assets/logo/screw-mark-white.png" alt="SCREW"></div><span class="doc-n">Símbolo branco</span><span class="doc-v">espaços pequenos no escuro</span></div>
+<div class="doc-sw"><div class="doc-logo doc-logo--light"><img src="assets/logo/screw-mark.png" alt="SCREW"></div><span class="doc-n">Símbolo colorido</span><span class="doc-v">ícone do app, sidebar recolhida</span></div>
+</div></div></section>
+
+<!-- ============ CORES ============ -->
+<section class="doc-sec"><h2 class="doc-h2">Cores (aliases semânticos)</h2>
+<p class="doc-p">O valor mostrado é o do tema atual. Use sempre o nome do token, nunca o hex.</p>
+<div class="doc-box" id="cores"></div></section>
+
+<!-- ============ TIPOGRAFIA ============ -->
+<section class="doc-sec"><h2 class="doc-h2">Tipografia</h2>
+<div class="doc-box">
+<div class="doc-type"><span class="doc-v">--type-page-title</span><span style="font:var(--type-page-title);letter-spacing:var(--tracking-tight);color:var(--text-strong)">Relação preventiva</span><span class="doc-v">28 / 600 / 1.15</span></div>
+<div class="doc-type"><span class="doc-v">--type-app-title</span><span style="font:var(--type-app-title);letter-spacing:var(--tracking-tight);color:var(--text-strong)">Bom dia, Fernanda</span><span class="doc-v">26 / 600 / 1.15</span></div>
+<div class="doc-type"><span class="doc-v">--type-modal-title</span><span style="font:var(--type-modal-title);color:var(--text-strong)">Registrar manutenção</span><span class="doc-v">20 / 600 / 1.25</span></div>
+<div class="doc-type"><span class="doc-v">--type-section-title</span><span style="font:var(--type-section-title);color:var(--text-strong)">Manutenções por semana</span><span class="doc-v">18 / 600 / 1.3</span></div>
+<div class="doc-type"><span class="doc-v">--type-drawer-title</span><span style="font:var(--type-drawer-title);color:var(--text-strong)">Punção sextavado M8</span><span class="doc-v">17 / 600 / 1.3</span></div>
+<div class="doc-type"><span class="doc-v">--type-card-title</span><span style="font:var(--type-card-title);color:var(--text-strong)">Próximas manutenções</span><span class="doc-v">15 / 600 / 1.3</span></div>
+<div class="doc-type"><span class="doc-v">--type-body</span><span style="font:var(--type-body);color:var(--text-body)">Matriz substituída após inspeção de trinca no punção.</span><span class="doc-v">14 / 400 / 1.45</span></div>
+<div class="doc-type"><span class="doc-v">--type-body-strong</span><span style="font:var(--type-body-strong);color:var(--text-strong)">Punção sextavado M8</span><span class="doc-v">14 / 500 / 1.45</span></div>
+<div class="doc-type"><span class="doc-v">--type-small</span><span style="font:var(--type-small);color:var(--text-muted)">Prensa P-02 · Turno A</span><span class="doc-v">13 / 400 / 1.45</span></div>
+<div class="doc-type"><span class="doc-v">--type-label</span><span style="font:var(--type-label);color:var(--text-muted)">Limite de golpes</span><span class="doc-v">12 / 500 / 1.3</span></div>
+<div class="doc-type"><span class="doc-v">--type-caption</span><span style="font:var(--type-caption);color:var(--text-muted)">Atualizado há 4 min</span><span class="doc-v">12 / 400 / 1.45</span></div>
+<div class="doc-type"><span class="doc-v">--type-code</span><span style="font:var(--type-code);color:var(--text-subtle)">MTZ-0142 · OS 2026-0381</span><span class="doc-v">Mono 12 / 400</span></div>
+<div class="doc-type"><span class="doc-v">--type-overline</span><span class="overline">Matriz · MTZ-0142</span><span class="doc-v">Mono 10 / 500 / +0.06em</span></div>
+<div class="doc-type"><span class="doc-v">--type-kpi</span><span style="font:var(--type-kpi);letter-spacing:var(--tracking-tight);color:var(--text-strong)">94,2%  182.000</span><span class="doc-v">28 / 600 / tabular</span></div>
+</div></section>
+
+<!-- ============ ESPAÇO, RAIO, ELEVAÇÃO ============ -->
+<section class="doc-sec"><h2 class="doc-h2">Espaçamento, raios e elevação</h2>
+<div class="doc-box">
+<div class="doc-row doc-row--top"><span class="doc-k">Espaço</span><div class="doc-space" id="espacos"></div></div>
+<div class="doc-row doc-row--top"><span class="doc-k">Raios</span><div class="doc-row">
+<div class="doc-sw"><div class="doc-radius" style="border-radius:var(--radius-xs)"></div><span class="doc-v">xs 6 · tag</span></div>
+<div class="doc-sw"><div class="doc-radius" style="border-radius:var(--radius-sm)"></div><span class="doc-v">sm 8 · subnav</span></div>
+<div class="doc-sw"><div class="doc-radius" style="border-radius:var(--radius-md)"></div><span class="doc-v">md 10 · campo</span></div>
+<div class="doc-sw"><div class="doc-radius" style="border-radius:var(--radius-lg)"></div><span class="doc-v">lg 14 · grupo</span></div>
+<div class="doc-sw"><div class="doc-radius" style="border-radius:var(--radius-xl)"></div><span class="doc-v">xl 20 · cartão</span></div>
+<div class="doc-sw"><div class="doc-radius" style="border-radius:var(--radius-2xl)"></div><span class="doc-v">2xl 24 · modal</span></div>
+<div class="doc-sw"><div class="doc-radius" style="border-radius:var(--radius-pill)"></div><span class="doc-v">pill · botões</span></div>
+</div></div>
+<div class="doc-row doc-row--top"><span class="doc-k">Sombra</span><div class="doc-grid doc-g4 spacer" style="background:var(--bg-app);padding:var(--space-8);border-radius:var(--radius-lg)">
+<div class="doc-sw"><div class="doc-shadow" style="box-shadow:var(--shadow-sm)"></div><span class="doc-v">shadow-sm · aba ativa</span></div>
+<div class="doc-sw"><div class="doc-shadow" style="box-shadow:var(--shadow-md)"></div><span class="doc-v">shadow-md · tooltip</span></div>
+<div class="doc-sw"><div class="doc-shadow" style="box-shadow:var(--shadow-lg)"></div><span class="doc-v">shadow-lg · gaveta/modal</span></div>
+<div class="doc-sw"><div class="doc-shadow" style="background:var(--accent);box-shadow:var(--shadow-accent)"></div><span class="doc-v">shadow-accent · primário</span></div>
+</div></div>
+</div></section>
+
+<!-- ============ BOTÕES ============ -->
+<section class="doc-sec"><h2 class="doc-h2">Botões</h2>
+<p class="doc-p">Sempre em pílula. Um único <code>primary</code> por tela (ícone dentro da bolha branca). <code>dark</code> confirma/aplica, <code>neutral</code> cancela. Pressionado: escala 0,98. Desabilitado: cinza, nunca só transparente.</p>
+<div class="doc-box">
+<div class="doc-row"><span class="doc-k">Variantes</span>
+<button class="btn btn--primary btn--bubble"><span class="btn__bubble"><i data-ico="plus" data-s="16"></i></span>Nova matriz</button>
+<button class="btn"><i data-ico="download"></i>Exportar</button>
+<button class="btn btn--dark">Aplicar filtros</button>
+<button class="btn btn--soft"><i data-ico="check"></i>Salvar rascunho</button>
+<button class="btn btn--neutral">Cancelar</button>
+<button class="btn btn--outline">Importar lista</button>
+<button class="btn btn--destructive"><i data-ico="trash-2"></i>Excluir</button>
+<button class="btn btn--ghost"><i data-ico="history"></i>Histórico</button></div>
+<div class="doc-row"><span class="doc-k">Tamanhos</span>
+<button class="btn btn--primary btn--bubble btn--sm"><span class="btn__bubble"><i data-ico="plus" data-s="14"></i></span>sm 32</button>
+<button class="btn btn--primary btn--bubble"><span class="btn__bubble"><i data-ico="plus" data-s="16"></i></span>md 40</button>
+<button class="btn btn--primary btn--bubble btn--lg"><span class="btn__bubble"><i data-ico="wrench" data-s="16"></i></span>lg 48 (celular)</button></div>
+<div class="doc-row"><span class="doc-k">Normal</span><button class="btn btn--primary">Primário</button><button class="btn">Secundário</button><button class="btn btn--dark">Escuro</button><button class="btn btn--ghost">Fantasma</button></div>
+<div class="doc-row"><span class="doc-k">Hover</span><button class="btn btn--primary f-hover">Primário</button><button class="btn f-hover">Secundário</button><button class="btn btn--dark f-hover">Escuro</button><button class="btn btn--ghost f-hover">Fantasma</button></div>
+<div class="doc-row"><span class="doc-k">Foco</span><button class="btn btn--primary f-focus">Primário</button><button class="btn f-focus">Secundário</button><button class="btn btn--dark f-focus">Escuro</button><button class="btn btn--ghost f-focus">Fantasma</button></div>
+<div class="doc-row"><span class="doc-k">Desabilitado</span><button class="btn btn--primary btn--bubble" disabled><span class="btn__bubble"><i data-ico="plus" data-s="16"></i></span>Primário</button><button class="btn" disabled>Secundário</button><button class="btn btn--dark" disabled>Escuro</button><button class="btn btn--ghost" disabled>Fantasma</button></div>
+<div class="doc-row"><span class="doc-k">Botão de ícone</span>
+<button class="icon-btn" aria-label="Ajuda"><i data-ico="circle-help"></i></button>
+<button class="icon-btn" aria-label="Notificações"><i data-ico="bell"></i><span class="icon-btn__dot"></span></button>
+<button class="icon-btn icon-btn--neutral icon-btn--sm" aria-label="Fechar"><i data-ico="x" data-s="16"></i></button>
+<button class="icon-btn icon-btn--ghost icon-btn--sm" aria-label="Editar"><i data-ico="pencil" data-s="16"></i></button>
+<button class="icon-btn icon-btn--ghost icon-btn--sm" aria-label="Mais"><i data-ico="ellipsis" data-s="16"></i></button>
+<button class="icon-btn icon-btn--dark" aria-label="Menu"><i data-ico="menu"></i></button>
+<button class="icon-btn icon-btn--soft" aria-label="Agenda"><i data-ico="calendar"></i></button>
+<button class="icon-btn icon-btn--lg" aria-label="Voltar"><i data-ico="chevron-left" data-s="20"></i></button>
+<button class="icon-btn f-focus" aria-label="Foco"><i data-ico="search"></i></button>
+<button class="icon-btn" disabled aria-label="Desabilitado"><i data-ico="trash-2"></i></button></div>
+</div></section>
+
+<!-- ============ ÍCONES ============ -->
+<section class="doc-sec"><h2 class="doc-h2">Ícones</h2>
+<p class="doc-p">Lucide (contorno, traço 2 na grade 24 → ~1,5px a 18px). Tamanhos: 16 em tabelas/campos, 18 em botões/menu, 20 na barra superior e no celular, 24+ em estados vazios. Cor = <code>currentColor</code>.</p>
+<div class="doc-box"><div class="doc-icons" id="icones"></div></div></section>
+
+<!-- ============ CAMPOS ============ -->
+<section class="doc-sec"><h2 class="doc-h2">Campos de formulário</h2>
+<div class="doc-box"><div class="doc-grid doc-g3">
+<div class="field"><label class="field__label">Normal<span class="field__req"> *</span></label><div class="control"><input placeholder="Ex.: MTZ-0142"></div><span class="field__hint">Dica abaixo do campo</span></div>
+<div class="field"><label class="field__label">Foco</label><div class="control f-focus"><input value="MTZ-03"></div></div>
+<div class="field"><label class="field__label">Preenchido (busca)</label><div class="control control--filled"><i data-ico="search" data-s="16"></i><input placeholder="Buscar matriz, OS…"></div></div>
+<div class="field"><label class="field__label">Erro</label><div class="control control--error"><input placeholder="Nome do técnico"></div><span class="field__error">Informe o técnico responsável</span></div>
+<div class="field"><label class="field__label">Desabilitado</label><div class="control control--disabled"><input value="12/09/2026" disabled></div></div>
+<div class="field"><label class="field__label">Com unidade</label><div class="control"><input value="200000"><span class="control__suffix">golpes</span></div></div>
+<div class="field"><label class="field__label">Seleção</label><div class="control control--select"><select><option>Formadora F-02</option><option>Prensa P-03</option></select><i data-ico="chevron-down" data-s="16"></i></div></div>
+<div class="field"><label class="field__label">Seleção vazia</label><div class="control control--select"><select class="is-empty"><option>Selecione…</option></select><i data-ico="chevron-down" data-s="16"></i></div></div>
+<div class="field"><label class="field__label">Pequeno (barra de ferramentas)</label><div class="control control--sm control--filled"><i data-ico="search" data-s="16"></i><input placeholder="Buscar OS"></div></div>
+<div class="field" style="grid-column:1 / -1"><label class="field__label">Área de texto</label><textarea class="textarea" rows="2" placeholder="Descreva o que foi feito…"></textarea></div>
+</div></div></section>
+
+<!-- ============ CONTROLES ============ -->
+<section class="doc-sec"><h2 class="doc-h2">Controles</h2>
+<div class="doc-box">
+<div class="doc-row"><span class="doc-k">Checkbox</span>
+<label class="check"><input type="checkbox"><span class="check__box"><i data-ico="check" data-s="12" data-c="ico-on"></i><i data-ico="minus" data-s="12" data-c="ico-mixed"></i></span><span class="choice__text"><span class="choice__label">Desmarcado</span></span></label>
+<label class="check"><input type="checkbox" checked><span class="check__box"><i data-ico="check" data-s="12" data-c="ico-on"></i><i data-ico="minus" data-s="12" data-c="ico-mixed"></i></span><span class="choice__text"><span class="choice__label">Marcado</span></span></label>
+<label class="check"><input type="checkbox" data-misto="1"><span class="check__box"><i data-ico="check" data-s="12" data-c="ico-on"></i><i data-ico="minus" data-s="12" data-c="ico-mixed"></i></span><span class="choice__text"><span class="choice__label">Parcial</span></span></label>
+<label class="check"><input type="checkbox" disabled><span class="check__box"><i data-ico="check" data-s="12" data-c="ico-on"></i><i data-ico="minus" data-s="12" data-c="ico-mixed"></i></span><span class="choice__text"><span class="choice__label">Desabilitado</span></span></label></div>
+<div class="doc-row"><span class="doc-k">Radio</span>
+<label class="radio"><input type="radio" name="r" checked><span class="radio__dot"></span><span class="choice__text"><span class="choice__label">Preventiva</span></span></label>
+<label class="radio"><input type="radio" name="r"><span class="radio__dot"></span><span class="choice__text"><span class="choice__label">Corretiva</span></span></label>
+<label class="radio radio--top"><input type="radio" name="r"><span class="radio__dot"></span><span class="choice__text"><span class="choice__label">Com descrição</span><span class="choice__desc">Vence ao atingir o limite de golpes</span></span></label>
+<label class="radio"><input type="radio" disabled><span class="radio__dot"></span><span class="choice__text"><span class="choice__label">Desabilitado</span></span></label></div>
+<div class="doc-row"><span class="doc-k">Chave</span>
+<label class="switch"><input type="checkbox" checked><span class="switch__track"></span><span class="choice__text"><span class="choice__label">Ligado</span></span></label>
+<label class="switch"><input type="checkbox"><span class="switch__track"></span><span class="choice__text"><span class="choice__label">Desligado</span></span></label>
+<label class="switch switch--sm"><input type="checkbox" checked><span class="switch__track"></span><span class="choice__text"><span class="choice__label">Pequeno</span></span></label>
+<label class="switch"><input type="checkbox" disabled><span class="switch__track"></span><span class="choice__text"><span class="choice__label">Desabilitado</span></span></label></div>
+<div class="doc-row"><span class="doc-k">Segmentado</span>
+<div class="segmented"><button class="segmented__opt">Hoje</button><button class="segmented__opt is-active">7 dias</button><button class="segmented__opt">Mês</button></div>
+<div class="segmented segmented--sm"><button class="segmented__opt is-active">8 sem</button><button class="segmented__opt">12 sem</button><button class="segmented__opt">26 sem</button></div></div>
+</div></section>
+
+<!-- ============ STATUS E CHIPS ============ -->
+<section class="doc-sec"><h2 class="doc-h2">Status, chips e indicadores</h2>
+<p class="doc-p">As palavras de status são fixas. Cor nunca é o único sinal — o rótulo sempre diz o estado.</p>
+<div class="doc-box">
+<div class="doc-row"><span class="doc-k">Matriz</span><span class="pill pill--success"><span class="pill__dot"></span>Em dia</span><span class="pill pill--warning"><span class="pill__dot"></span>Próxima</span><span class="pill pill--danger"><span class="pill__dot"></span>Vencida</span><span class="pill pill--brand"><span class="pill__dot"></span>Em manutenção</span><span class="pill pill--neutral"><span class="pill__dot"></span>Inativa</span></div>
+<div class="doc-row"><span class="doc-k">OS</span><span class="pill pill--neutral pill--sm"><span class="pill__dot"></span>Aberta</span><span class="pill pill--brand pill--sm"><span class="pill__dot"></span>Em andamento</span><span class="pill pill--warning pill--sm"><span class="pill__dot"></span>Aguardando peça</span><span class="pill pill--success pill--sm"><span class="pill__dot"></span>Concluída</span><span class="pill pill--info pill--sm"><span class="pill__dot"></span>Informativo</span></div>
+<div class="doc-row"><span class="doc-k">Chip</span><button class="chip">Forjamento</button><button class="chip is-selected"><i data-ico="check" data-s="13"></i>Estampagem</button><span class="chip chip--filter">Status: Vencida<button class="chip__x" aria-label="Remover filtro"><i data-ico="x" data-s="12"></i></button></span><span class="tag">Prensa P-02</span><span class="tag">Turno A</span></div>
+<div class="doc-row"><span class="doc-k">Contagem</span><span class="badge">2</span><span class="badge badge--neutral">128</span><span class="badge badge--danger">6</span><span class="badge badge--dark">4</span><span class="delta"><i data-ico="arrow-up" data-s="11"></i>12%</span><span class="delta delta--bad"><i data-ico="arrow-up" data-s="11"></i>3</span><span class="delta"><i data-ico="arrow-down" data-s="11"></i>2</span></div>
+<div class="doc-row"><span class="doc-k">Medidor</span>
+<span class="meter"><span class="meter__track"><span class="meter__fill" style="width:34%"></span></span><span class="meter__label">34%</span></span>
+<span class="meter meter--warn"><span class="meter__track"><span class="meter__fill" style="width:76%"></span></span><span class="meter__label">76%</span></span>
+<span class="meter meter--danger"><span class="meter__track"><span class="meter__fill" style="width:100%"></span></span><span class="meter__label">103%</span></span>
+<span class="doc-v">verde &lt; 70% · âmbar ≥ 70% · vermelho ≥ 90% do limite de golpes</span></div>
+<div class="doc-row"><span class="doc-k">Avatar</span><span class="avatar avatar--24">CM</span><span class="avatar">AR</span><span class="avatar avatar--36 avatar--brand">CM</span><span class="avatar avatar--44 avatar--brand">FC</span><span class="avatar avatar--36 avatar--square">P2</span></div>
+</div></section>
+
+<!-- ============ NAVEGAÇÃO ============ -->
+<section class="doc-sec"><h2 class="doc-h2">Navegação</h2>
+<div class="doc-grid" style="grid-template-columns:260px minmax(0,1fr)">
+<div class="doc-box" style="padding:var(--space-5)"><nav class="nav">
+<button class="nav-item is-active"><i data-ico="layout-grid"></i><span class="nav-item__label">Painel (ativo)</span></button>
+<button class="nav-item f-hover"><i data-ico="clipboard-list"></i><span class="nav-item__label">Hover</span><span class="nav-item__badge">4</span></button>
+<div class="nav-group is-open"><button class="nav-item"><i data-ico="layers"></i><span class="nav-item__label">Grupo aberto</span><span class="nav-item__chev"><i data-ico="chevron-up" data-s="14"></i></span></button><div class="nav-sub"><button class="nav-item is-active"><span class="nav-item__label">Relação preventiva</span></button><button class="nav-item"><span class="nav-item__label">Cadastrar matriz</span></button></div></div>
+<button class="nav-item"><i data-ico="calendar-clock"></i><span class="nav-item__label">Normal</span><span class="nav-item__chev"><i data-ico="chevron-down" data-s="14"></i></span></button>
+</nav></div>
+<div class="doc-box">
+<div class="doc-row"><span class="doc-k">Abas (filtro)</span><div class="tabs"><button class="tab is-active">Todas<span class="tab__count">128</span></button><button class="tab">Vencidas<span class="tab__count">6</span></button><button class="tab">Próximas<span class="tab__count">14</span></button><button class="tab">Em dia<span class="tab__count">102</span></button></div></div>
+<div class="doc-row"><span class="doc-k">Abas (seção)</span><div class="tabs tabs--pill"><button class="tab is-active">Geral</button><button class="tab">Checklist<span class="tab__count">5</span></button><button class="tab">Histórico<span class="tab__count">3</span></button></div></div>
+<div class="doc-row"><span class="doc-k">Etapas</span><div class="spacer"><div class="stepper"><button class="step is-done"><span class="step__bar"></span><span class="step__row"><span class="step__num"><i data-ico="check" data-s="12"></i></span><span class="step__label">Identificação</span></span></button><button class="step is-active"><span class="step__bar"></span><span class="step__row"><span class="step__num">2</span><span class="step__label">Plano preventivo</span></span></button><button class="step"><span class="step__bar"></span><span class="step__row"><span class="step__num">3</span><span class="step__label">Checklist</span></span></button><button class="step"><span class="step__bar"></span><span class="step__row"><span class="step__num">4</span><span class="step__label">Revisão</span></span></button></div></div></div>
+<div class="doc-row"><span class="doc-k">Paginação</span><div class="spacer"><div class="pagination"><span class="pagination__summary">1–10 de 128</span><div class="pagination__pages"><button class="page-nav" disabled><i data-ico="chevron-left" data-s="14"></i>Anterior</button><button class="page-num is-current">1</button><button class="page-num">2</button><button class="page-num">3</button><span class="page-gap">…</span><button class="page-num">13</button><button class="page-nav">Próxima<i data-ico="chevron-right" data-s="14"></i></button></div></div></div></div>
+</div></div></section>
+
+<!-- ============ DADOS ============ -->
+<section class="doc-sec"><h2 class="doc-h2">Exibição de dados</h2>
+<p class="doc-p">Cartões brancos sobre o fundo cinza, sem borda nem sombra. No máximo um indicador <code>highlight</code> por linha. Números com algarismos tabulares e formato pt-BR.</p>
+<div class="doc-grid doc-g3">
+<div class="stat"><span class="stat__top"><span class="stat__label"><i data-ico="triangle-alert" data-s="16"></i>Manutenções vencidas</span><span class="stat__over">Hoje</span></span><span class="stat__valrow"><span class="stat__value">6</span><span class="delta delta--bad"><i data-ico="arrow-up" data-s="11"></i>2</span></span><span class="stat__rows"><span class="stat__row"><span>Ontem</span><span>4</span></span><span class="stat__row"><span>Este mês</span><span>11</span></span></span></div>
+<div class="stat stat--highlight"><span class="stat__top"><span class="stat__label">Cumprimento do plano</span><span class="stat__over">Mês</span></span><span class="stat__valrow"><span class="stat__value">94,2<span class="stat__unit">%</span></span><span class="delta delta--on-accent"><i data-ico="arrow-up" data-s="11"></i>3,1%</span></span><span class="stat__rows"><span class="stat__row"><span>Planejadas</span><span>86</span></span><span class="stat__row"><span>Realizadas</span><span>81</span></span></span></div>
+<section class="card"><header class="card__head"><div><h3 class="card__title">Cartão com título</h3><p class="card__sub">Subtítulo em 12px</p></div><div class="card__actions"><button class="btn btn--ghost btn--sm">Ver todas<i data-ico="arrow-right" data-s="16"></i></button></div></header><div class="card__body"><div class="stat stat--plain"><span class="stat__top"><span class="stat__label">Matrizes ativas (plain)</span></span><span class="stat__valrow"><span class="stat__value">128</span></span></div></div></section>
+</div>
+<section class="card card--flush"><div class="card__body"><div class="table-wrap"><table class="table">
+<thead><tr><th class="col-check"><label class="check check--sm"><input type="checkbox" data-misto="1"><span class="check__box"><i data-ico="check" data-s="10" data-c="ico-on"></i><i data-ico="minus" data-s="12" data-c="ico-mixed"></i></span></label></th><th class="is-sortable is-sorted"><span class="th-in">Matriz<i data-ico="arrow-down" data-s="12"></i></span></th><th>Máquina</th><th>Responsável</th><th class="is-sortable"><span class="th-in">Golpes<i data-ico="chevron-down" data-s="12"></i></span></th><th>Próxima</th><th>Status</th></tr></thead>
+<tbody>
+<tr class="is-selected"><td class="col-check"><label class="check check--sm"><input type="checkbox" checked><span class="check__box"><i data-ico="check" data-s="10" data-c="ico-on"></i><i data-ico="minus" data-s="12" data-c="ico-mixed"></i></span></label></td><td><div class="cell-stack"><span class="cell-title">Punção sextavado M8 (selecionada)</span><span class="cell-code">MTZ-0142</span></div></td><td>Formadora F-02</td><td><span class="cell-person"><span class="avatar avatar--24">CM</span>Carlos Menezes</span></td><td><span class="meter meter--danger"><span class="meter__track"><span class="meter__fill" style="width:100%"></span></span><span class="meter__label">103%</span></span></td><td><span class="t-danger">Vencida há 3 dias</span></td><td><span class="pill pill--danger pill--sm"><span class="pill__dot"></span>Vencida</span></td></tr>
+<tr class="f-hover"><td class="col-check"><label class="check check--sm"><input type="checkbox"><span class="check__box"><i data-ico="check" data-s="10" data-c="ico-on"></i><i data-ico="minus" data-s="12" data-c="ico-mixed"></i></span></label></td><td><div class="cell-stack"><span class="cell-title">Pente de rosca M6 (hover)</span><span class="cell-code">MTZ-0207</span></div></td><td>Laminadora L-01</td><td><span class="cell-person"><span class="avatar avatar--24">JP</span>João Prado</span></td><td><span class="meter meter--danger"><span class="meter__track"><span class="meter__fill" style="width:92%"></span></span><span class="meter__label">92%</span></span></td><td><span class="t-warning">em 2 dias</span></td><td><span class="pill pill--warning pill--sm"><span class="pill__dot"></span>Próxima</span></td></tr>
+<tr><td class="col-check"><label class="check check--sm"><input type="checkbox"><span class="check__box"><i data-ico="check" data-s="10" data-c="ico-on"></i><i data-ico="minus" data-s="12" data-c="ico-mixed"></i></span></label></td><td><div class="cell-stack"><span class="cell-title">Matriz de 2º golpe M6</span><span class="cell-code">MTZ-0301</span></div></td><td>Formadora F-02</td><td><span class="cell-person"><span class="avatar avatar--24">AR</span>Ana Ribeiro</span></td><td><span class="meter"><span class="meter__track"><span class="meter__fill" style="width:49%"></span></span><span class="meter__label">49%</span></span></td><td>em 19 dias</td><td><span class="pill pill--success pill--sm"><span class="pill__dot"></span>Em dia</span></td></tr>
+</tbody></table></div></div></section>
+</section>
+
+<!-- ============ SOBREPOSIÇÕES ============ -->
+<section class="doc-sec"><h2 class="doc-h2">Gaveta e modal</h2>
+<p class="doc-p">Gaveta (detalhe rápido) abre ao clicar numa linha — no celular vira folha inferior. Modal para tarefas curtas; rodapé com <code>neutral</code> à esquerda do <code>dark</code>/<code>primary</code>. Esc e clique fora fecham.</p>
+<div class="doc-grid doc-g2" style="align-items:start">
+<div class="modal modal--inline"><header class="modal__head"><div><h2 class="modal__title">Reprogramar manutenção</h2><p class="modal__desc">MTZ-0142 · Punção sextavado M8</p></div><button class="icon-btn icon-btn--neutral icon-btn--sm" aria-label="Fechar"><i data-ico="x" data-s="16"></i></button></header><div class="modal__body"><div class="field"><label class="field__label">Nova data</label><div class="control"><i data-ico="calendar" data-s="16"></i><input value="28/10/2026"></div></div><div class="field"><label class="field__label">Motivo</label><textarea class="textarea" rows="2" placeholder="Ex.: aguardando peça"></textarea></div></div><footer class="modal__foot"><button class="btn btn--neutral">Cancelar</button><button class="btn btn--dark">Salvar</button></footer></div>
+<div class="doc-drawer"><aside class="drawer"><header class="drawer__head"><div><div class="drawer__over">Matriz · MTZ-0142</div><h2 class="drawer__title">Punção sextavado M8</h2></div><div class="drawer__actions"><button class="icon-btn icon-btn--ghost icon-btn--sm" aria-label="Próxima"><i data-ico="chevron-down" data-s="16"></i></button><button class="icon-btn icon-btn--neutral icon-btn--sm" aria-label="Fechar"><i data-ico="x" data-s="16"></i></button></div></header><div class="drawer__body"><span class="pill pill--danger"><span class="pill__dot"></span>Vencida há 3 dias</span><div class="box-sunken"><div class="row-between"><span class="t-muted-sm">Golpes desde a última</span><span class="usage-pct t-danger">103%</span></div><div class="usage-big">206.400 <span class="t-muted-sm">/ 200.000</span></div><span class="meter meter--danger meter--block meter--6"><span class="meter__track"><span class="meter__fill" style="width:100%"></span></span></span></div><dl class="dl"><dt>Máquina</dt><dd>Formadora F-02</dd><dt>Responsável</dt><dd>Carlos Menezes</dd></dl></div><footer class="drawer__foot"><button class="btn btn--neutral btn--sm">Reprogramar</button><div class="spacer"></div><button class="btn btn--dark btn--sm"><i data-ico="wrench" data-s="16"></i>Registrar</button></footer></aside></div>
+</div></section>
+
+<section class="doc-sec"><h2 class="doc-h2">App real (fase 1)</h2>
+<p class="doc-p">Componentes criados com o servidor. Classes em <code>public/css/app.css</code>, funções em <code>public/js/ui.js</code> (<code>UI.aviso</code>, <code>UI.toast</code>, <code>UI.tecladoPin</code>).</p>
+<div class="doc-box">
+<div class="doc-row doc-row--top"><span class="doc-k">Aviso</span><div class="stack gap-6 spacer">
+<div class="notice notice--info"><i data-ico="info" data-s="16"></i><span class="notice__text">O envio automático entra na fase 2.</span></div>
+<div class="notice notice--success"><i data-ico="circle-check" data-s="16"></i><span class="notice__text">Manutenção registrada.</span></div>
+<div class="notice notice--warning"><i data-ico="triangle-alert" data-s="16"></i><span class="notice__text">A extração do CIGAM de hoje não chegou. Usando a demanda de 26/10/2026.</span></div>
+<div class="notice notice--danger"><i data-ico="circle-alert" data-s="16"></i><span class="notice__text">Matrícula ou senha incorreta.</span></div>
+</div></div>
+<div class="doc-row doc-row--top"><span class="doc-k">Matriz do dia</span><div class="dayplan spacer">
+<button type="button" class="dayplan__item"><span class="dayplan__head"><span class="num-tile">1</span><span class="cell-stack spacer"><span class="cell-title ellipsis">Punção sextavado M8</span><span class="cell-code">MTZ-0142 · Formadora F-02</span></span></span><span class="kv-list"><span class="kv"><span>Demanda mensal (soma)</span><b>27.500 peças</b></span><span class="kv"><span>Referência de maior demanda</span><b>10.0412</b></span></span><span class="meter meter--danger meter--block"><span class="meter__track"><span class="meter__fill" style="width:100%"></span></span></span><span class="dayplan__foot"><span class="pill pill--danger pill--sm"><span class="pill__dot"></span>Vencida</span><span class="caption">Sem OS</span></span></button>
+<button type="button" class="dayplan__item"><span class="dayplan__head"><span class="num-tile">2</span><span class="cell-stack spacer"><span class="cell-title ellipsis">Matriz de cabeça flangeada M8</span><span class="cell-code">MTZ-0233 · Formadora F-02</span></span></span><span class="kv-list"><span class="kv"><span>Demanda mensal (soma)</span><b>32.200 peças</b></span></span><span class="dayplan__foot"><span class="pill pill--brand pill--sm"><span class="pill__dot"></span>Maior demanda</span><span class="cell-code">OSM 2026-0005</span></span></button>
+<button type="button" class="dayplan__item is-done"><span class="dayplan__head"><span class="num-tile">3</span><span class="cell-stack spacer"><span class="cell-title ellipsis">Matriz de 1º golpe M10</span><span class="cell-code">MTZ-0118 · Formadora F-01</span></span></span><span class="dayplan__foot"><span class="pill pill--warning pill--sm"><span class="pill__dot"></span>Pendente desde 26/10</span><span class="pill pill--success pill--sm"><span class="pill__dot"></span>Feita</span></span></button>
+</div></div>
+<div class="doc-row doc-row--top"><span class="doc-k">Tablet</span><div class="doc-grid doc-g2 spacer">
+<div class="person-grid"><button type="button" class="person-tile"><span class="avatar avatar--44">FC</span><span class="person-tile__nome">Fernanda Costa</span><span class="person-tile__sub">Técnico de matrizaria</span></button><button type="button" class="person-tile" disabled><span class="avatar avatar--44">TN</span><span class="person-tile__nome">Técnico Novo</span><span class="person-tile__sub">Sem PIN</span></button></div>
+<div id="doc-pin"></div>
+</div></div>
+<div class="doc-row doc-row--top"><span class="doc-k">Entrada</span><div class="auth__card"><img class="auth__banner" src="assets/marca/screw-banner.jpg" alt="SCREW"><div class="auth__body"><div class="auth__head"><span class="overline t-subtle">Matrizaria · Manutenção preventiva</span><h1 class="auth__title">Entrar</h1><p class="auth__sub">Use sua matrícula e senha.</p></div><button class="btn btn--primary btn--lg btn--block">Entrar</button></div></div></div>
+</div></section>
+
+</div>
+<script src="../public/js/icones.js"></script>
+<script src="../public/js/ui.js"></script>
+<script>
+(function () {
+  const COR = [
+    ['Marca e ação', ['--brand', '--accent', '--accent-hover', '--accent-soft', '--accent-soft-fg', '--on-accent']],
+    ['Superfícies', ['--bg-app', '--surface-card', '--surface-sunken', '--surface-muted', '--surface-hover-subtle', '--surface-selected', '--surface-inverse']],
+    ['Texto', ['--text-strong', '--text-body', '--text-secondary', '--text-muted', '--text-subtle', '--text-link']],
+    ['Bordas', ['--border-subtle', '--border-default', '--border-strong', '--border-focus']],
+    ['Semânticas', ['--success', '--success-fg', '--success-soft', '--warning', '--warning-fg', '--warning-soft', '--danger', '--danger-fg', '--danger-soft', '--info', '--info-fg', '--info-soft']],
+    ['Status de manutenção', ['--status-ok', '--status-due', '--status-overdue', '--status-progress', '--status-inactive']],
+    ['Gradientes', ['--gradient-brand', '--gradient-highlight']],
+  ];
+  function cores() {
+    const cs = getComputedStyle(document.documentElement);
+    document.getElementById('cores').innerHTML = COR.map(([g, ts]) => `<div class="stack gap-6"><span class="doc-k">${g}</span><div class="doc-swatches">${ts.map((t) => `<div class="doc-sw"><div class="doc-chip" style="background:var(${t})"></div><span class="doc-n">${t}</span><span class="doc-v">${cs.getPropertyValue(t).trim().slice(0, 60)}</span></div>`).join('')}</div></div>`).join('');
+  }
+  document.getElementById('espacos').innerHTML = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 16, 20, 24, 32].map((k) => `<div class="doc-sw" style="align-items:center"><span style="width:var(--space-${k});height:var(--space-${k})"></span><span class="doc-v">${k * 2}</span></div>`).join('');
+  document.getElementById('icones').innerHTML = Object.keys(window.ICONES).map((n) => `<div class="doc-icon"><i data-ico="${n}" data-s="20"></i>${n}</div>`).join('');
+  document.getElementById('doc-pin').innerHTML = UI.tecladoPin({ n: 2 });
+  document.querySelectorAll('[data-ico]').forEach((el) => { el.outerHTML = UI.icone(el.dataset.ico, Number(el.dataset.s) || 18, el.dataset.c || ''); });
+  document.querySelectorAll('input[data-misto]').forEach((el) => { el.indeterminate = true; });
+  document.getElementById('tema').addEventListener('click', () => { UI.alternarTema(); cores(); });
+  cores();
+})();
+</script>
+</body>
+</html>

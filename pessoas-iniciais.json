@@ -1,0 +1,7 @@
+{
+  "$leia": "Lido só na primeira vez que o servidor sobe (quando data/db.json ainda não existe). Troque as matrículas antes da primeira execução. Níveis: 1 Dev/Admin · 2 Gestor (Admin completo) · 3 Técnico (App do Técnico no tablet, entra com PIN).",
+  "pessoas": [
+    { "nome": "João Comassetto", "matricula": "1001", "nivel": 1, "cargo": "Engenharia de Manufatura" },
+    { "nome": "Mariana Lange", "matricula": "1002", "nivel": 2, "cargo": "Matrizaria" }
+  ]
+}
